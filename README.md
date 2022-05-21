@@ -28,7 +28,7 @@ console.log //代码块  C.S.k
 
  **加粗 Cb** 
 
-图像C.S.i ![2](D:\Users\瑞丰\Documents\learningNote\homework\part1\fed-e-task-01-01\images\imageSample.jpg)
+图像C.S.i <img src="D:\Users\瑞丰\Documents\learningNote\homework\part1\fed-e-task-01-01\images\imageSample.jpg" style="zoom:50%;" />
 
 
 
