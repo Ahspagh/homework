@@ -110,8 +110,8 @@ class myPromise {
     let result = []
     let index = 0
     return new myPromise((resolve, reject) => {
-      function addData (index, value) {
-        result[index] = value
+      function addData (key, value) {
+        result[key] = value
         index++
         // 这里必须使用全等
         if (index === result.length) {
@@ -132,7 +132,7 @@ class myPromise {
           )
         } else {
           // 普通值直接返回
-          addData(i, array[i])
+          addData(i, data)
         }
       }
     })
