@@ -1,7 +1,7 @@
 
 
 ## 【简答题】一、请简述 Vue 首次渲染的过程。
-![在这里插入图片描述](images\首次渲染.PNG)
+![在这里插入图片描述](images\首次渲染.png)
 
 - 对 Vue 构造函数进行初始化，挂载实例成员和静态成员
 - 初始化结束，调用Vue的构造函数 `new Vue()`
@@ -28,7 +28,7 @@
 ## 【简答题】二、请简述 Vue 响应式原理。
 - Vue的响应式是从Vue的实例`init()`方法中开始的
 
-![在这里插入图片描述](images\init方法开始响应式.PNG)
+![在这里插入图片描述](images\init方法开始响应式.png)
 
 - 在`init()`方法中先调用`initState()`初始化Vue实例的状态，在`initState`方法中调用了`initData()`，`initData()`是把data属性注入到Vue实例上，并且调用`observe(data)`将`data`对象转化成响应式的对象
 - `observe`是响应式的入口
@@ -37,7 +37,7 @@
 	* 如果没有，创建`observer`对象
 	* 返回`observer`对象
 
-![在这里插入图片描述](D:images\observer是响应式的入口.PNG)
+![在这里插入图片描述](D:images\observer是响应式的入口.png)
 
 - 在创建`observer`对象时，给当前的`value`对象定义不可枚举的`__ob__`属性，记录当前的`observer`对象，然后再进行数组的响应式处理和对象的响应式处理
 	* 数组的响应式处理，就是设置数组的几个特殊的方法，`push`、`pop`、`sort`等，这些方法会改变原数组，所以这些方法被调用的时候需要发送通知
@@ -48,7 +48,7 @@
 	* `getter` 的作用是收集依赖，收集依赖时，为每一个属性收集依赖，如果这个属性的值是对象，那也要为子对象收集依赖，最后返回属性的值
 	* 在`setter` 中，先保存新值，如果新值是对象，也要调用 `observe` ，把新设置的对象也转换成响应式的对象，然后派发更新（发送通知），调用`dep.notify()`
 
-![在这里插入图片描述](images\依赖收集.PNG)
+![在这里插入图片描述](images\依赖收集.png)
 
 - 收集依赖时
 	* 在`watcher`对象的`get`方法中调用`pushTarget`, 记录`Dep.target`属性
@@ -56,7 +56,7 @@
 	* 把属性对应的 `watcher` 对象添加到`dep`的`subs`数组中，也就是为属性收集依赖
 	* 如果属性的值也是对象，给`childOb`收集依赖，目的是子对象添加和删除成员时发送通知
 
-![在这里插入图片描述](images\watcher对象.PNG)
+![在这里插入图片描述](images\watcher对象.png)
 
 - 在数据发生变化的时候
 	* 调用`dep.notify()`发送通知，`dep.notify()`会调用`watcher`对象的`update()`方法
@@ -78,7 +78,7 @@
 
 
 ## 【简答题】四、请简述 Vue 中模板编译的过程。
-![在这里插入图片描述](images\模板编译过程.PNG)
+![在这里插入图片描述](images\模板编译过程.png)
 
 - 模版编译入口函数`compileToFunctions`
 	* 内部首先从缓存加载编译好的`render`函数
